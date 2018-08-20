@@ -3,4 +3,19 @@ syntax="proto3";
 package greet;
 option go_package="greetpb";
 
-service GreetService{}
+message Greeting{
+    string First_Name=1;
+    string Last_Name=2;
+}
+
+message GreetRequest{
+    Greeting Greeting=1;
+}
+message GreetResponse{
+    string Result=1;
+}
+
+service GreetService{
+
+    rpc Greet(GreetRequest) returns(GreetResponse) {};
+}
