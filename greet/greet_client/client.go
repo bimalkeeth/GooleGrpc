@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
+	"io"
 	"log"
 )
 
@@ -27,4 +28,25 @@ func main() {
 		log.Fatal("Error occurred")
 	}
 	fmt.Println(res.GetResult())
+
+	resStream, err := c.GreatManyTimes(context.Background(), &greetpb.GreetManyTimesRequest{
+		Greeting: &greetpb.Greeting{
+			First_Name: "Bimal",
+			Last_Name:  "Kaluarachchi",
+		},
+	})
+	if err != nil {
+		log.Fatal("Error occurred")
+	}
+	for {
+		msg, err := resStream.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal("Error occurred")
+		}
+		fmt.Println(msg.GetResult())
+	}
+
 }
