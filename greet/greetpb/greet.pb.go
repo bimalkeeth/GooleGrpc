@@ -35,7 +35,7 @@ func (m *Greeting) Reset()         { *m = Greeting{} }
 func (m *Greeting) String() string { return proto.CompactTextString(m) }
 func (*Greeting) ProtoMessage()    {}
 func (*Greeting) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_7d1ea3a1e3484a3a, []int{0}
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{0}
 }
 func (m *Greeting) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Greeting.Unmarshal(m, b)
@@ -80,7 +80,7 @@ func (m *GreetRequest) Reset()         { *m = GreetRequest{} }
 func (m *GreetRequest) String() string { return proto.CompactTextString(m) }
 func (*GreetRequest) ProtoMessage()    {}
 func (*GreetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_7d1ea3a1e3484a3a, []int{1}
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{1}
 }
 func (m *GreetRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetRequest.Unmarshal(m, b)
@@ -118,7 +118,7 @@ func (m *GreetResponse) Reset()         { *m = GreetResponse{} }
 func (m *GreetResponse) String() string { return proto.CompactTextString(m) }
 func (*GreetResponse) ProtoMessage()    {}
 func (*GreetResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_7d1ea3a1e3484a3a, []int{2}
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{2}
 }
 func (m *GreetResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetResponse.Unmarshal(m, b)
@@ -156,7 +156,7 @@ func (m *GreetManyTimesRequest) Reset()         { *m = GreetManyTimesRequest{} }
 func (m *GreetManyTimesRequest) String() string { return proto.CompactTextString(m) }
 func (*GreetManyTimesRequest) ProtoMessage()    {}
 func (*GreetManyTimesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_7d1ea3a1e3484a3a, []int{3}
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{3}
 }
 func (m *GreetManyTimesRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetManyTimesRequest.Unmarshal(m, b)
@@ -194,7 +194,7 @@ func (m *GreetManyTimesResponse) Reset()         { *m = GreetManyTimesResponse{}
 func (m *GreetManyTimesResponse) String() string { return proto.CompactTextString(m) }
 func (*GreetManyTimesResponse) ProtoMessage()    {}
 func (*GreetManyTimesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_greet_7d1ea3a1e3484a3a, []int{4}
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{4}
 }
 func (m *GreetManyTimesResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GreetManyTimesResponse.Unmarshal(m, b)
@@ -221,12 +221,90 @@ func (m *GreetManyTimesResponse) GetResult() string {
 	return ""
 }
 
+type GreetEveryOneRequest struct {
+	Greeting             *Greeting `protobuf:"bytes,1,opt,name=Greeting" json:"Greeting,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *GreetEveryOneRequest) Reset()         { *m = GreetEveryOneRequest{} }
+func (m *GreetEveryOneRequest) String() string { return proto.CompactTextString(m) }
+func (*GreetEveryOneRequest) ProtoMessage()    {}
+func (*GreetEveryOneRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{5}
+}
+func (m *GreetEveryOneRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GreetEveryOneRequest.Unmarshal(m, b)
+}
+func (m *GreetEveryOneRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GreetEveryOneRequest.Marshal(b, m, deterministic)
+}
+func (dst *GreetEveryOneRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GreetEveryOneRequest.Merge(dst, src)
+}
+func (m *GreetEveryOneRequest) XXX_Size() int {
+	return xxx_messageInfo_GreetEveryOneRequest.Size(m)
+}
+func (m *GreetEveryOneRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GreetEveryOneRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GreetEveryOneRequest proto.InternalMessageInfo
+
+func (m *GreetEveryOneRequest) GetGreeting() *Greeting {
+	if m != nil {
+		return m.Greeting
+	}
+	return nil
+}
+
+type GreetEveryOneResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=Result" json:"Result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GreetEveryOneResponse) Reset()         { *m = GreetEveryOneResponse{} }
+func (m *GreetEveryOneResponse) String() string { return proto.CompactTextString(m) }
+func (*GreetEveryOneResponse) ProtoMessage()    {}
+func (*GreetEveryOneResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_greet_9dc1b54ded271e3e, []int{6}
+}
+func (m *GreetEveryOneResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GreetEveryOneResponse.Unmarshal(m, b)
+}
+func (m *GreetEveryOneResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GreetEveryOneResponse.Marshal(b, m, deterministic)
+}
+func (dst *GreetEveryOneResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GreetEveryOneResponse.Merge(dst, src)
+}
+func (m *GreetEveryOneResponse) XXX_Size() int {
+	return xxx_messageInfo_GreetEveryOneResponse.Size(m)
+}
+func (m *GreetEveryOneResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GreetEveryOneResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GreetEveryOneResponse proto.InternalMessageInfo
+
+func (m *GreetEveryOneResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*Greeting)(nil), "greet.Greeting")
 	proto.RegisterType((*GreetRequest)(nil), "greet.GreetRequest")
 	proto.RegisterType((*GreetResponse)(nil), "greet.GreetResponse")
 	proto.RegisterType((*GreetManyTimesRequest)(nil), "greet.GreetManyTimesRequest")
 	proto.RegisterType((*GreetManyTimesResponse)(nil), "greet.GreetManyTimesResponse")
+	proto.RegisterType((*GreetEveryOneRequest)(nil), "greet.GreetEveryOneRequest")
+	proto.RegisterType((*GreetEveryOneResponse)(nil), "greet.GreetEveryOneResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -243,6 +321,7 @@ const _ = grpc.SupportPackageIsVersion4
 type GreetServiceClient interface {
 	Greet(ctx context.Context, in *GreetRequest, opts ...grpc.CallOption) (*GreetResponse, error)
 	GreatManyTimes(ctx context.Context, in *GreetManyTimesRequest, opts ...grpc.CallOption) (GreetService_GreatManyTimesClient, error)
+	GreetEveryOne(ctx context.Context, opts ...grpc.CallOption) (GreetService_GreetEveryOneClient, error)
 }
 
 type greetServiceClient struct {
@@ -294,10 +373,42 @@ func (x *greetServiceGreatManyTimesClient) Recv() (*GreetManyTimesResponse, erro
 	return m, nil
 }
 
+func (c *greetServiceClient) GreetEveryOne(ctx context.Context, opts ...grpc.CallOption) (GreetService_GreetEveryOneClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_GreetService_serviceDesc.Streams[1], "/greet.GreetService/GreetEveryOne", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &greetServiceGreetEveryOneClient{stream}
+	return x, nil
+}
+
+type GreetService_GreetEveryOneClient interface {
+	Send(*GreetEveryOneRequest) error
+	Recv() (*GreetEveryOneResponse, error)
+	grpc.ClientStream
+}
+
+type greetServiceGreetEveryOneClient struct {
+	grpc.ClientStream
+}
+
+func (x *greetServiceGreetEveryOneClient) Send(m *GreetEveryOneRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *greetServiceGreetEveryOneClient) Recv() (*GreetEveryOneResponse, error) {
+	m := new(GreetEveryOneResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 type GreetServiceServer interface {
 	Greet(context.Context, *GreetRequest) (*GreetResponse, error)
 	GreatManyTimes(*GreetManyTimesRequest, GreetService_GreatManyTimesServer) error
+	GreetEveryOne(GreetService_GreetEveryOneServer) error
 }
 
 func RegisterGreetServiceServer(s *grpc.Server, srv GreetServiceServer) {
@@ -343,6 +454,32 @@ func (x *greetServiceGreatManyTimesServer) Send(m *GreetManyTimesResponse) error
 	return x.ServerStream.SendMsg(m)
 }
 
+func _GreetService_GreetEveryOne_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(GreetServiceServer).GreetEveryOne(&greetServiceGreetEveryOneServer{stream})
+}
+
+type GreetService_GreetEveryOneServer interface {
+	Send(*GreetEveryOneResponse) error
+	Recv() (*GreetEveryOneRequest, error)
+	grpc.ServerStream
+}
+
+type greetServiceGreetEveryOneServer struct {
+	grpc.ServerStream
+}
+
+func (x *greetServiceGreetEveryOneServer) Send(m *GreetEveryOneResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *greetServiceGreetEveryOneServer) Recv() (*GreetEveryOneRequest, error) {
+	m := new(GreetEveryOneRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _GreetService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "greet.GreetService",
 	HandlerType: (*GreetServiceServer)(nil),
@@ -358,14 +495,20 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 			Handler:       _GreetService_GreatManyTimes_Handler,
 			ServerStreams: true,
 		},
+		{
+			StreamName:    "GreetEveryOne",
+			Handler:       _GreetService_GreetEveryOne_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
 	},
 	Metadata: "greet/greetpb/greet.proto",
 }
 
-func init() { proto.RegisterFile("greet/greetpb/greet.proto", fileDescriptor_greet_7d1ea3a1e3484a3a) }
+func init() { proto.RegisterFile("greet/greetpb/greet.proto", fileDescriptor_greet_9dc1b54ded271e3e) }
 
-var fileDescriptor_greet_7d1ea3a1e3484a3a = []byte{
-	// 249 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_greet_9dc1b54ded271e3e = []byte{
+	// 296 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0x2f, 0x4a, 0x4d,
 	0x2d, 0xd1, 0x07, 0x93, 0x05, 0x49, 0x10, 0x5a, 0xaf, 0xa0, 0x28, 0xbf, 0x24, 0x5f, 0x88, 0x15,
 	0xcc, 0x51, 0x72, 0xe3, 0xe2, 0x70, 0x07, 0x31, 0x32, 0xf3, 0xd2, 0x85, 0x64, 0xb9, 0xb8, 0xdc,
@@ -376,10 +519,13 @@ var fileDescriptor_greet_7d1ea3a1e3484a3a = []byte{
 	0x08, 0xae, 0x40, 0x49, 0x9d, 0x8b, 0x17, 0xaa, 0xb9, 0xb8, 0x20, 0x3f, 0xaf, 0x38, 0x55, 0x48,
 	0x8c, 0x8b, 0x2d, 0x28, 0xb5, 0xb8, 0x34, 0xa7, 0x04, 0xea, 0x0a, 0x28, 0x4f, 0xc9, 0x85, 0x4b,
 	0x14, 0xac, 0xd0, 0x37, 0x31, 0xaf, 0x32, 0x24, 0x33, 0x37, 0xb5, 0x98, 0x2c, 0xeb, 0x0c, 0xb8,
-	0xc4, 0xd0, 0x4d, 0xc1, 0x6f, 0xaf, 0xd1, 0x74, 0x46, 0xa8, 0xf7, 0x82, 0x53, 0x8b, 0xca, 0x32,
-	0x93, 0x53, 0x85, 0x4c, 0xb8, 0x58, 0xc1, 0x7c, 0x21, 0x61, 0x64, 0x6b, 0xa0, 0xae, 0x91, 0x12,
-	0x41, 0x15, 0x84, 0x18, 0xae, 0xc4, 0x20, 0x14, 0xc8, 0xc5, 0xe7, 0x5e, 0x94, 0x9a, 0x88, 0xb0,
-	0x58, 0x48, 0x06, 0x59, 0x25, 0xba, 0xaf, 0xa4, 0x64, 0x71, 0xc8, 0xc2, 0x0c, 0x34, 0x60, 0x74,
-	0xe2, 0x8c, 0x62, 0x87, 0xc6, 0x6e, 0x12, 0x1b, 0x38, 0x62, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff,
-	0xff, 0xd0, 0x58, 0xd4, 0x30, 0xf5, 0x01, 0x00, 0x00,
+	0xc4, 0xd0, 0x4d, 0x21, 0x60, 0xaf, 0x33, 0x97, 0x08, 0x58, 0x87, 0x6b, 0x59, 0x6a, 0x51, 0xa5,
+	0x7f, 0x5e, 0x2a, 0x59, 0xd6, 0xea, 0x43, 0x1d, 0x8f, 0x30, 0x04, 0xbf, 0xad, 0x46, 0x2f, 0x19,
+	0xa1, 0x81, 0x1a, 0x9c, 0x5a, 0x54, 0x96, 0x99, 0x9c, 0x2a, 0x64, 0xc2, 0xc5, 0x0a, 0xe6, 0x0b,
+	0x09, 0x23, 0xdb, 0x02, 0x75, 0x8c, 0x94, 0x08, 0xaa, 0x20, 0xc4, 0x70, 0x25, 0x06, 0xa1, 0x40,
+	0x2e, 0x3e, 0xf7, 0xa2, 0xd4, 0x44, 0x84, 0x77, 0x85, 0x64, 0x90, 0x55, 0xa2, 0x87, 0xa5, 0x94,
+	0x2c, 0x0e, 0x59, 0x98, 0x81, 0x06, 0x8c, 0x42, 0x01, 0xd0, 0x08, 0x83, 0x79, 0x45, 0x48, 0x1a,
+	0x59, 0x0f, 0x5a, 0x28, 0x49, 0xc9, 0x60, 0x97, 0x84, 0x99, 0xa7, 0xc1, 0x68, 0xc0, 0xe8, 0xc4,
+	0x19, 0xc5, 0x0e, 0x4d, 0xa5, 0x49, 0x6c, 0xe0, 0x04, 0x6a, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff,
+	0xc0, 0x7e, 0x30, 0x05, 0xbd, 0x02, 0x00, 0x00,
 }

@@ -8,6 +8,7 @@ import (
 	"net"
 
 	"context"
+	"io"
 	"strconv"
 	"time"
 )
@@ -43,6 +44,27 @@ func (*server) GreatManyTimes(req *greetpb.GreetManyTimesRequest, stream greetpb
 		time.Sleep(10 * time.Millisecond)
 	}
 	return nil
+}
+
+func (*server) GreetEveryOne(stream greetpb.GreetService_GreetEveryOneServer) error {
+	fmt.Println("Greet Every one   function invoked")
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
+		if err != nil {
+			log.Fatal("Error occurred in %v ", err)
+			return err
+		}
+		firstName := req.GetGreeting().First_Name
+		result := "Hello" + firstName + ": "
+		Senderr := stream.Send(&greetpb.GreetEveryOneResponse{Result: result})
+		if Senderr != nil {
+			log.Fatal("Error sending in %v ", Senderr)
+			return err
+		}
+	}
 }
 
 const (

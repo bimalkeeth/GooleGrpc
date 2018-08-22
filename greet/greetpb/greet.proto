@@ -23,9 +23,19 @@ message GreetManyTimesResponse{
     string Result=1;
 }
 
+message GreetEveryOneRequest{
+    Greeting Greeting=1;
+}
+
+message GreetEveryOneResponse{
+    string Result=1;
+}
+
+
 
 service GreetService{
 
     rpc Greet(GreetRequest) returns(GreetResponse) {};
     rpc GreatManyTimes(GreetManyTimesRequest) returns(stream GreetManyTimesResponse) {};
+    rpc GreetEveryOne(stream GreetEveryOneRequest) returns (stream GreetEveryOneResponse) {};
 }

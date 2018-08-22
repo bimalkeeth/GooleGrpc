@@ -7,6 +7,7 @@ import (
 	"google.golang.org/grpc"
 	"io"
 	"log"
+	"time"
 )
 
 func main() {
@@ -48,5 +49,70 @@ func main() {
 		}
 		fmt.Println(msg.GetResult())
 	}
+	doBiDirectionalStream(c)
+}
 
+func doBiDirectionalStream(c greetpb.GreetServiceClient) {
+	fmt.Println("Bidirectional client server streaming")
+	stream, err := c.GreetEveryOne(context.Background())
+	if err != nil {
+		log.Fatal("Error occurred in streaming  %v", err)
+	}
+
+	requests := []*greetpb.GreetEveryOneRequest{
+		{
+			Greeting: &greetpb.Greeting{
+				First_Name: "Stephane",
+			},
+		},
+		{
+			Greeting: &greetpb.Greeting{
+				First_Name: "July",
+			},
+		},
+		{
+			Greeting: &greetpb.Greeting{
+				First_Name: "Tom",
+			},
+		},
+		{
+			Greeting: &greetpb.Greeting{
+				First_Name: "Robert",
+			},
+		},
+		{
+			Greeting: &greetpb.Greeting{
+				First_Name: "Lucy",
+			},
+		},
+	}
+
+	waitc := make(chan struct{})
+	go func() {
+		for _, req := range requests {
+			fmt.Println("Sending Message %v\n", req)
+			stream.Send(req)
+			time.Sleep(1 * time.Millisecond)
+		}
+		stream.CloseSend()
+	}()
+
+	go func() {
+
+		for {
+			res, err := stream.Recv()
+
+			if err == io.EOF {
+				close(waitc)
+				break
+			}
+			if err != nil {
+				log.Fatal("Error occurred in streaming rec %v", err)
+				break
+			}
+			fmt.Printf("Received %v", res.GetResult())
+		}
+	}()
+
+	<-waitc
 }
