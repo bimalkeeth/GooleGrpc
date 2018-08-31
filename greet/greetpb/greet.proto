@@ -31,8 +31,6 @@ message GreetEveryOneResponse{
     string Result=1;
 }
 
-
-
 service GreetService{
 
     rpc Greet(GreetRequest) returns(GreetResponse) {};
